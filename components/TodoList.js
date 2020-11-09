@@ -2,8 +2,8 @@ import { useState } from "react";
 import { useStoreState, useStoreActions } from "easy-peasy";
 
 const TodoList = () => {
-  const todos = useStoreState((state) => state.todos);
-  const saveTodo = useStoreActions((actions) => actions.saveTodo);
+  const todos = useStoreState((state) => state.todos.todos);
+  const saveTodo = useStoreActions((actions) => actions.todos.saveTodo);
   const [value, setValue] = useState("");
 
   return (

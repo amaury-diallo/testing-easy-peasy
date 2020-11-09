@@ -1,7 +1,8 @@
 import { createStore, action, thunk } from "easy-peasy";
-import API from "./services/axios";
+import userModel from "./models/user";
+import API from "../services/axios";
 
-const store = createStore({
+const todoModel = {
   todos: [],
   addTodo: action((state, payload) => {
     state.todos.push(payload);
@@ -13,12 +14,18 @@ const store = createStore({
       userId: 1,
     };
 
-    const { data } = await API.post("/todos", { newTodo });
+    const { data } = await API.post("/todos", newTodo);
 
-    newTodo.id = data.id;
-    console.log(newTodo);
-    actions.addTodo(newTodo);
+    console.log(data);
+    actions.addTodo(data);
   }),
-});
+};
+
+const storeModel = {
+  auth: userModel,
+  todos: todoModel,
+};
+
+const store = createStore(storeModel);
 
 export default store;

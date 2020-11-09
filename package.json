@@ -9,7 +9,9 @@
   },
   "dependencies": {
     "axios": "^0.21.0",
+    "classnames": "^2.2.6",
     "easy-peasy": "^4.0.1",
+    "js-cookie": "^2.2.1",
     "next": "10.0.1",
     "react": "^17.0.1",
     "react-dom": "17.0.1"
